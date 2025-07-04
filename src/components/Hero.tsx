@@ -1,91 +1,177 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
 
 const Hero: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
   const sceneRef = useRef<THREE.Scene>();
   const rendererRef = useRef<THREE.WebGLRenderer>();
+  const animationIdRef = useRef<number>();
+  const [webglSupported, setWebglSupported] = useState(true);
 
   useEffect(() => {
     if (!mountRef.current) return;
 
-    // Scene setup
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+    // Check WebGL support before attempting to create renderer
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
     
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setClearColor(0x000000, 0);
-    mountRef.current.appendChild(renderer.domElement);
-
-    sceneRef.current = scene;
-    rendererRef.current = renderer;
-
-    // Create shield geometry
-    const shieldGeometry = new THREE.RingGeometry(1, 1.5, 8);
-    const shieldMaterial = new THREE.MeshBasicMaterial({ 
-      color: 0x00FF94, 
-      wireframe: true,
-      transparent: true,
-      opacity: 0.8
-    });
-    const shield = new THREE.Mesh(shieldGeometry, shieldMaterial);
-    scene.add(shield);
-
-    // Create particles
-    const particlesGeometry = new THREE.BufferGeometry();
-    const particlesCount = 2000;
-    const posArray = new Float32Array(particlesCount * 3);
-
-    for (let i = 0; i < particlesCount * 3; i++) {
-      posArray[i] = (Math.random() - 0.5) * 10;
+    if (!gl) {
+      console.warn('WebGL not supported, falling back to CSS animations');
+      setWebglSupported(false);
+      return;
     }
 
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-    particlesGeometry.computeBoundingSphere();
+    let scene: THREE.Scene;
+    let camera: THREE.PerspectiveCamera;
+    let renderer: THREE.WebGLRenderer;
 
-    const particlesMaterial = new THREE.PointsMaterial({
-      size: 0.005,
-      color: 0x00FF94,
-      transparent: true,
-      opacity: 0.8
-    });
-
-    const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particlesMesh);
-
-    // Position camera
-    camera.position.z = 5;
-
-    // Animation loop
-    const animate = () => {
-      requestAnimationFrame(animate);
+    try {
+      // Scene setup with error handling
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
       
-      shield.rotation.y += 0.01;
-      particlesMesh.rotation.y += 0.002;
-      particlesMesh.rotation.x += 0.001;
+      // Create renderer with fallback options
+      renderer = new THREE.WebGLRenderer({ 
+        alpha: true, 
+        antialias: true,
+        powerPreference: 'default', // Use default power preference to avoid issues
+        failIfMajorPerformanceCaveat: false // Don't fail on performance issues
+      });
       
-      renderer.render(scene, camera);
-    };
-
-    animate();
-
-    // Handle resize
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-      if (mountRef.current && renderer.domElement) {
-        mountRef.current.removeChild(renderer.domElement);
+      renderer.setClearColor(0x000000, 0);
+      
+      // Safely append to DOM
+      if (mountRef.current) {
+        mountRef.current.appendChild(renderer.domElement);
       }
-      renderer.dispose();
-    };
+
+      sceneRef.current = scene;
+      rendererRef.current = renderer;
+
+      // Create shield geometry
+      const shieldGeometry = new THREE.RingGeometry(1, 1.5, 8);
+      const shieldMaterial = new THREE.MeshBasicMaterial({ 
+        color: 0x00FF94, 
+        wireframe: true,
+        transparent: true,
+        opacity: 0.8
+      });
+      const shield = new THREE.Mesh(shieldGeometry, shieldMaterial);
+      scene.add(shield);
+
+      // Create particles
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 2000;
+      const posArray = new Float32Array(particlesCount * 3);
+
+      for (let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 10;
+      }
+
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      particlesGeometry.computeBoundingSphere();
+
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.005,
+        color: 0x00FF94,
+        transparent: true,
+        opacity: 0.8
+      });
+
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+
+      // Position camera
+      camera.position.z = 5;
+
+      // Animation loop with error handling
+      const animate = () => {
+        try {
+          animationIdRef.current = requestAnimationFrame(animate);
+          
+          if (shield && particlesMesh && renderer && scene && camera) {
+            shield.rotation.y += 0.01;
+            particlesMesh.rotation.y += 0.002;
+            particlesMesh.rotation.x += 0.001;
+            
+            renderer.render(scene, camera);
+          }
+        } catch (error) {
+          console.error('Animation error:', error);
+          if (animationIdRef.current) {
+            cancelAnimationFrame(animationIdRef.current);
+          }
+        }
+      };
+
+      animate();
+
+      // Handle resize with error handling
+      const handleResize = () => {
+        try {
+          if (camera && renderer) {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+          }
+        } catch (error) {
+          console.error('Resize error:', error);
+        }
+      };
+
+      window.addEventListener('resize', handleResize);
+
+      return () => {
+        try {
+          window.removeEventListener('resize', handleResize);
+          
+          if (animationIdRef.current) {
+            cancelAnimationFrame(animationIdRef.current);
+          }
+          
+          if (mountRef.current && renderer.domElement && mountRef.current.contains(renderer.domElement)) {
+            mountRef.current.removeChild(renderer.domElement);
+          }
+          
+          // Dispose of Three.js resources
+          if (renderer) {
+            renderer.dispose();
+          }
+          
+          // Clean up geometries and materials
+          scene.traverse((object) => {
+            if (object instanceof THREE.Mesh) {
+              if (object.geometry) {
+                object.geometry.dispose();
+              }
+              if (object.material) {
+                if (Array.isArray(object.material)) {
+                  object.material.forEach(material => material.dispose());
+                } else {
+                  object.material.dispose();
+                }
+              }
+            }
+          });
+        } catch (error) {
+          console.error('Cleanup error:', error);
+        }
+      };
+
+    } catch (error) {
+      console.error('WebGL initialization error:', error);
+      setWebglSupported(false);
+      
+      // Clean up any partially created resources
+      if (renderer) {
+        try {
+          renderer.dispose();
+        } catch (disposeError) {
+          console.error('Error disposing renderer:', disposeError);
+        }
+      }
+    }
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -97,7 +183,18 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      <div ref={mountRef} className="absolute inset-0 z-0" />
+      {webglSupported && <div ref={mountRef} className="absolute inset-0 z-0" />}
+      
+      {/* Fallback animated background for when WebGL is not supported */}
+      {!webglSupported && (
+        <div className="absolute inset-0 z-0 bg-gradient-to-br from-gray-900 via-black to-gray-800">
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-[#00FF94] rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute top-3/4 right-1/4 w-24 h-24 bg-[#FF2E63] rounded-full blur-2xl animate-pulse" style={{animationDelay: '1s'}}></div>
+            <div className="absolute bottom-1/4 left-1/2 w-20 h-20 bg-[#00FF94] rounded-full blur-xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          </div>
+        </div>
+      )}
       
       {/* Animated background elements */}
       <div className="absolute inset-0 z-5">
