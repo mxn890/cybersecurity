@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+'use client'
+
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import DataBreachChecker from './components/DataBreachChecker';
@@ -7,7 +9,7 @@ import About from './components/About';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 
-function App() {
+export default function Home() {
   useEffect(() => {
     // Smooth scrolling for all anchor links
     const handleSmoothScroll = (e: Event) => {
@@ -37,5 +39,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
