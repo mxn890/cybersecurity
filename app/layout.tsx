@@ -2,6 +2,11 @@ import type { Metadata } from 'next'
 import { Orbitron } from 'next/font/google'
 import './globals.css'
 
+// ✅ Import components
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import CustomCursor from './components/CustomCursor' // 👈 import your cursor
+
 const orbitron = Orbitron({
   subsets: ['latin'],
   weight: ['400', '700', '900'],
@@ -20,7 +25,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${orbitron.variable} font-orbitron`}>{children}</body>
+      <body className={`${orbitron.variable} font-orbitron bg-black text-white`}>
+        <CustomCursor /> {/* 👈 Use your custom cursor */}
+
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   )
 }
