@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -11,9 +11,11 @@ export default {
         'neon-pink': '#FF2E63',
       },
       fontFamily: {
-        'orbitron': ['Orbitron', 'monospace'],
+        orbitron: ['var(--font-orbitron)', 'monospace'],
+        // Optional: Override default sans so `font-sans` bhi Orbitron ho
+        sans: ['var(--font-orbitron)', 'monospace'],
       },
     },
   },
   plugins: [],
-}
+};

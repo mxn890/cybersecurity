@@ -2,11 +2,9 @@
 const nextConfig = {
   images: {
     domains: ['images.pexels.com', 'pexels.com'],
-    unoptimized: true
+    unoptimized: true,
   },
-  experimental: {
-    appDir: true
-  }
-}
+  // Removed experimental.appDir as it's no longer needed
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
