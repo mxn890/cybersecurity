@@ -97,95 +97,100 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-[70vh] flex items-center justify-center overflow-hidden pt-16">
+    <section id="home" className="relative min-h-[80vh] md:min-h-[90vh] flex items-center justify-center overflow-hidden pt-16 pb-10">
       <div ref={mountRef} className="absolute inset-0 z-0" />
       
       {/* Background elements */}
       <div className="absolute inset-0 z-5">
-        <div className="floating-element absolute top-20 left-10 w-4 h-4 bg-[#00FF94] rounded-full opacity-60"></div>
-        <div className="floating-element absolute top-40 right-20 w-5 h-5 bg-[#FF2E63] rounded-full opacity-40"></div>
+        <div className="floating-element absolute top-20 left-10 w-3 h-3 md:w-4 md:h-4 bg-[#00FF94] rounded-full opacity-60"></div>
+        <div className="floating-element absolute top-40 right-10 md:right-20 w-4 h-4 md:w-5 md:h-5 bg-[#FF2E63] rounded-full opacity-40"></div>
         <div className="floating-element absolute bottom-32 left-1/4 w-3 h-3 bg-[#00FF94] rounded-full opacity-50"></div>
       </div>
       
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 w-full">
-        <div className="mb-12">
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 cyber-gradient neon-text leading-tight">
+      <div className="relative z-10 text-center w-full mx-auto px-4 sm:px-6 max-w-6xl">
+        <div className="mb-8 md:mb-12">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 cyber-gradient neon-text leading-tight">
             CYBER
             <br />
-            <span className="text-5xl md:text-7xl">FORTRESS</span>
+            <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl">FORTRESS</span>
           </h1>
           
-          <div className="text-2xl md:text-3xl mb-8 text-gray-300 font-light tracking-wide">
+          <div className="text-xl sm:text-2xl md:text-3xl mb-6 md:mb-8 text-gray-300 font-light tracking-wide">
             <span className="typing-animation">Advanced Security Arsenal</span>
           </div>
         </div>
         
-        <p className="text-xl md:text-2xl mb-10 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-lg sm:text-xl md:text-2xl mb-8 md:mb-10 text-gray-300 max-w-3xl mx-auto leading-relaxed px-2">
           Professional-grade cybersecurity tools and dark web monitoring.
-          <br className="hidden md:block" />
+          <br className="hidden sm:block" />
           <span className="text-[#00FF94] font-medium">Secure your digital presence.</span>
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-5 justify-center mb-14">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10 md:mb-14 px-2">
           <button 
             onClick={() => scrollToSection('breach-checker')}
-            className="px-10 py-5 bg-gradient-to-r from-[#00FF94] to-[#00CC77] text-black font-bold rounded-lg hover:from-[#00CC77] hover:to-[#00AA66] transition-all duration-300 transform hover:scale-105 shadow-lg text-lg"
+            className="px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 bg-gradient-to-r from-[#00FF94] to-[#00CC77] text-black font-bold rounded-lg hover:from-[#00CC77] hover:to-[#00AA66] transition-all duration-300 transform hover:scale-105 shadow-lg text-sm sm:text-base md:text-lg"
           >
             CHECK DATA BREACHES
           </button>
           <button 
             onClick={() => scrollToSection('tools')}
-            className="px-10 py-5 border-2 border-[#FF2E63] text-[#FF2E63] font-bold rounded-lg hover:bg-[#FF2E63]/10 transition-all duration-300 transform hover:scale-105 text-lg"
+            className="px-6 py-3 sm:px-8 sm:py-4 md:px-10 md:py-5 border-2 border-[#FF2E63] text-[#FF2E63] font-bold rounded-lg hover:bg-[#FF2E63]/10 transition-all duration-300 transform hover:scale-105 text-sm sm:text-base md:text-lg"
           >
             EXPLORE TOOLS
           </button>
         </div>
 
-        {/* Compact but visible stats */}
-        <div className="w-full px-4 mb-8">
-          <div className="grid grid-cols-3 gap-5">
-            <div className="p-5 rounded-xl border border-[#00FF94]/50 text-center backdrop-blur-sm neon-glow-green">
-              <div className="text-3xl font-bold text-[#00FF94]">500+</div>
-              <div className="text-base text-gray-300">Security Tools</div>
+        {/* Responsive stats cards */}
+        <div className="w-full px-2 sm:px-4 mb-6 md:mb-8">
+          <div className="grid grid-cols-3 gap-3 sm:gap-4 md:gap-5">
+            <div className="p-3 sm:p-4 md:p-5 rounded-lg md:rounded-xl border border-[#00FF94]/50 text-center backdrop-blur-sm neon-glow-green">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00FF94]">500+</div>
+              <div className="text-xs sm:text-sm md:text-base text-gray-300">Security Tools</div>
             </div>
-            <div className="p-5 rounded-xl border border-[#FF2E63]/50 text-center backdrop-blur-sm neon-glow-pink">
-              <div className="text-3xl font-bold text-[#FF2E63]">24/7</div>
-              <div className="text-base text-gray-300">Monitoring</div>
+            <div className="p-3 sm:p-4 md:p-5 rounded-lg md:rounded-xl border border-[#FF2E63]/50 text-center backdrop-blur-sm neon-glow-pink">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-[#FF2E63]">24/7</div>
+              <div className="text-xs sm:text-sm md:text-base text-gray-300">Monitoring</div>
             </div>
-            <div className="p-5 rounded-xl border border-[#00FF94]/50 text-center backdrop-blur-sm neon-glow-green">
-              <div className="text-3xl font-bold text-[#00FF94]">99.9%</div>
-              <div className="text-base text-gray-300">Success Rate</div>
+            <div className="p-3 sm:p-4 md:p-5 rounded-lg md:rounded-xl border border-[#00FF94]/50 text-center backdrop-blur-sm neon-glow-green">
+              <div className="text-xl sm:text-2xl md:text-3xl font-bold text-[#00FF94]">99.9%</div>
+              <div className="text-xs sm:text-sm md:text-base text-gray-300">Success Rate</div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="w-7 h-12 border-2 border-[#00FF94] rounded-full flex justify-center neon-glow-green">
-          <div className="w-2 h-3 bg-[#00FF94] rounded-full mt-2 animate-bounce"></div>
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 z-10">
+        <div className="w-6 h-10 sm:w-7 sm:h-12 border-2 border-[#00FF94] rounded-full flex justify-center neon-glow-green">
+          <div className="w-1.5 h-2.5 sm:w-2 sm:h-3 bg-[#00FF94] rounded-full mt-2 animate-bounce"></div>
         </div>
       </div>
 
       <style jsx>{`
         .neon-glow-green {
-          box-shadow: 0 0 8px #00FF94;
+          box-shadow: 0 0 5px #00FF94;
           animation: pulse-green 2s infinite alternate;
         }
         .neon-glow-pink {
-          box-shadow: 0 0 8px #FF2E63;
+          box-shadow: 0 0 5px #FF2E63;
           animation: pulse-pink 2s infinite alternate;
         }
         .neon-text {
           text-shadow: 0 0 5px #00FF94;
         }
         @keyframes pulse-green {
-          0% { box-shadow: 0 0 8px #00FF94; }
-          100% { box-shadow: 0 0 12px #00FF94; }
+          0% { box-shadow: 0 0 5px #00FF94; }
+          100% { box-shadow: 0 0 10px #00FF94; }
         }
         @keyframes pulse-pink {
-          0% { box-shadow: 0 0 8px #FF2E63; }
-          100% { box-shadow: 0 0 12px #FF2E63; }
+          0% { box-shadow: 0 0 5px #FF2E63; }
+          100% { box-shadow: 0 0 10px #FF2E63; }
+        }
+        @media (max-width: 640px) {
+          .floating-element {
+            display: none;
+          }
         }
       `}</style>
     </section>
