@@ -5,44 +5,25 @@ const BlogPage: React.FC = () => {
   const blogPosts = [
     {
       id: 1,
-      title: 'Top 10 Cybersecurity Threats to Watch in 2025',
-      excerpt: 'Discover the emerging cyber threats that organizations must prepare for in the coming year, including AI-powered attacks and quantum computing vulnerabilities.',
-      date: 'June 15, 2025',
+      title: 'Why Cybersecurity Is Important for Individuals and Organizations',
+      excerpt: 'Hackers often target individuals and organizations because they usually don’t have strong security systems. Just one attack can',
+      date: '2025',
       slug: 'cybersecurity-threats-2025',
       category: 'Threat Intelligence',
       readTime: '8 min read',
-      image: '/images/blog/cyber-threats.jpg'
+      image: '/images/blog1.png'
     },
     {
       id: 2,
-      title: 'Zero Trust Architecture: The Future of Network Security',
-      excerpt: 'Learn how Zero Trust security models are replacing traditional perimeter-based defenses in modern enterprise environments.',
-      date: 'May 28, 2025',
+      title: 'How to Spot a Fake Website Before You Click',
+      excerpt: 'In today’s digital world, fake websites are everywhere, and they’re becoming increasingly difficult to spot. Cybercriminals use them to steal your personal information, trick you into downloading malware, or even hijack your accounts. Whether youre shopping ',
+      date: ' 2025',
       slug: 'zero-trust-architecture',
       category: 'Network Security',
       readTime: '10 min read',
-      image: '/images/blog/zero-trust.jpg'
+      image: '/images/blog2.png'
     },
-    {
-      id: 3,
-      title: 'Ethical Hacking: Essential Tools for Penetration Testing',
-      excerpt: 'A comprehensive guide to the must-have tools in every ethical hacker\'s toolkit for effective penetration testing.',
-      date: 'April 12, 2025',
-      slug: 'ethical-hacking-tools',
-      category: 'Penetration Testing',
-      readTime: '12 min read',
-      image: '/images/blog/hacking-tools.jpg'
-    },
-    {
-      id: 4,
-      title: 'Ransomware Defense Strategies That Actually Work',
-      excerpt: 'Proven techniques to protect your organization from ransomware attacks and minimize damage if breached.',
-      date: 'March 5, 2025',
-      slug: 'ransomware-defense',
-      category: 'Malware Protection',
-      readTime: '9 min read',
-      image: '/images/blog/ransomware.jpg'
-    },
+   
   ];
 
   return (
@@ -74,7 +55,7 @@ const BlogPage: React.FC = () => {
           <div className="mb-16 group">
             <div className="relative overflow-hidden rounded-xl border border-gray-800 hover:border-[#00FF94]/50 transition-all duration-500">
               <img
-                src="/images/blog/featured-post.jpg"
+                src="/images/cover2.png"
                 alt="Featured Cybersecurity Post"
                 className="w-full h-96 object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500 group-hover:scale-105"
               />
