@@ -17,7 +17,7 @@ const Tools: React.FC = () => {
         'Command: dox @username'
       ],
       output: 'Detailed report delivered in Telegram',
-      price: '$10'
+      price: '$50'
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ const Tools: React.FC = () => {
         'Command: phish gmail'
       ],
       output: 'Credentials + IP/device information',
-      price: '$10'
+      price: '$50'
     },
     {
       id: 3,
@@ -45,7 +45,7 @@ const Tools: React.FC = () => {
         'Command: build --android --keylogger'
       ],
       output: 'Clean executable file',
-      price: '$10'
+      price: '$50'
     },
     {
       id: 4,
@@ -59,7 +59,7 @@ const Tools: React.FC = () => {
         'Command: bounty --target domain.com'
       ],
       output: 'Detailed vulnerability report',
-      price: '$10'
+      price: '$50'
     },
     {
       id: 5,
@@ -73,7 +73,7 @@ const Tools: React.FC = () => {
         'Command: aihelp'
       ],
       output: 'Code snippets with explanations',
-      price: '$10'
+      price: '$50'
     },
     {
       id: 6,
@@ -87,7 +87,7 @@ const Tools: React.FC = () => {
         'Command: anonstart'
       ],
       output: 'Secure anonymous session',
-      price: '$10'
+      price: '$50'
     }
   ];
 
@@ -118,7 +118,7 @@ const Tools: React.FC = () => {
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div>
                 <h3 className="text-xl font-bold text-white mb-2">Full Terminal Access</h3>
-                <p className="text-gray-300">All tools for just <span className="text-green-400 font-bold">$10</span></p>
+                <p className="text-gray-300">All tools for just <span className="text-green-400 font-bold">$50</span></p>
               </div>
               <button className="mt-4 md:mt-0 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-bold flex items-center">
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
