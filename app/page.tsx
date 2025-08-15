@@ -35,7 +35,7 @@ export default function Home() {
       <DataBreachChecker />
       <Tools />
       <About />
-      <Footer />
+      
     </div>
   );
 }
