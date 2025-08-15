@@ -95,6 +95,10 @@ const Tools: React.FC = () => {
     setExpandedTool(expandedTool === id ? null : id);
   };
 
+  const handleButtonClick = () => {
+    window.open('https://t.me/Shadowwolfi_bot', '_blank');
+  };
+
   return (
     <section className="py-12 px-4 bg-gray-900 min-h-screen">
       <div className="max-w-4xl mx-auto">
@@ -120,7 +124,10 @@ const Tools: React.FC = () => {
                 <h3 className="text-xl font-bold text-white mb-2">Full Terminal Access</h3>
                 <p className="text-gray-300">All tools for just <span className="text-green-400 font-bold">$50</span></p>
               </div>
-              <button className="mt-4 md:mt-0 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-bold flex items-center">
+              <button 
+                onClick={handleButtonClick}
+                className="mt-4 md:mt-0 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-bold flex items-center"
+              >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.2 1.07-.83 3.66-1.56 7.22-.19.9-.56 1.2-.91 1.23-.76.06-1.33-.5-2.07-.98-1.15-.76-1.8-1.23-2.91-1.97-1.37-.92-.48-1.43.3-2.26.21-.22 3.85-3.68 3.93-4 .01-.01.02-.02.02-.02l.01-.02c.05-.1.06-.19.05-.29-.02-.1-.08-.19-.17-.26-.13-.09-.32-.12-.46-.1-.2.03-.6.38-2.3 1.33-1.81 1.01-2.53 1.35-2.83 1.28-.72-.15-.73-.72.04-1.16 2.28-1.28 3.85-2.15 5.56-3.18 2.16-1.29 2.6-1.51 2.89-1.52.63-.03 1.02.18 1.17.64.2.6.68 1.04 2.32.45 3.63z"/>
                 </svg>
@@ -175,7 +182,10 @@ const Tools: React.FC = () => {
                       </div>
                     </div>
 
-                    <button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center space-x-2">
+                    <button 
+                      onClick={handleButtonClick}
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-4 py-3 rounded-lg font-medium flex items-center justify-center space-x-2"
+                    >
                       <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.2 1.07-.83 3.66-1.56 7.22-.19.9-.56 1.2-.91 1.23-.76.06-1.33-.5-2.07-.98-1.15-.76-1.8-1.23-2.91-1.97-1.37-.92-.48-1.43.3-2.26.21-.22 3.85-3.68 3.93-4 .01-.01.02-.02.02-.02l.01-.02c.05-.1.06-.19.05-.29-.02-.1-.08-.19-.17-.26-.13-.09-.32-.12-.46-.1-.2.03-.6.38-2.3 1.33-1.81 1.01-2.53 1.35-2.83 1.28-.72-.15-.73-.72.04-1.16 2.28-1.28 3.85-2.15 5.56-3.18 2.16-1.29 2.6-1.51 2.89-1.52.63-.03 1.02.18 1.17.64.2.6.68 1.04 2.32.45 3.63z"/>
                       </svg>
@@ -195,15 +205,18 @@ const Tools: React.FC = () => {
               Ready to Get Started?
             </h3>
             <p className="text-gray-300 mb-6 max-w-xl mx-auto">
-              Get full access to all BLACKGATE-X tools for just $10. 
+              Get full access to all BLACKGATE-X tools for just $50. 
               Instant setup with 24/7 terminal access through Telegram.
             </p>
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center mx-auto space-x-3">
-              <span>Get Full Access for $10</span>
+            <button 
+              onClick={handleButtonClick}
+              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center mx-auto space-x-3"
+            >
+              <span>Get Full Access for $50</span>
             </button>
             <div className="mt-6 pt-6 border-t border-gray-700/50">
               <p className="text-gray-500 text-sm font-mono tracking-wider">
-                BLACKGATE-X Terminal | Telegram Access | Professional Security Tools
+                BLACKGATE-X Terminal | Telegram Access | Professional Security TOOLS
               </p>
             </div>
           </div>
