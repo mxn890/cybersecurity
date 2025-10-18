@@ -7,26 +7,26 @@ const Tools: React.FC = () => {
   const tools = [
     {
       id: 1,
-      name: 'AI Doxxer Tool',
-      category: 'Automated Intel Engine',
-      description: 'Collects and connects leaked databases, breached emails, linked socials, and IP logs with automated PDF reports',
+      name: 'Premier Ethical OSINT Suite',
+      category: 'Advanced Intelligence Engine',
+      description: 'Crafted by cybersecurity masters, this tool dives deep into public data (usernames, emails, profiles) for ethical pentesting, with sharp PDF reports and IP insights—plus a secret AI boost you can\'t afford to miss!',
       features: [
-        'Search by username/phone/email',
-        'Auto-generates comprehensive PDF reports',
-        'Includes GPS tracking via IP analysis',
-        'Command: dox @username'
+        'Advanced username/email/phone analysis',
+        'Auto-PDF reports',
+        'IP insights and geolocation tracking',
+        'Command: recon @username'
       ],
-      output: 'Detailed report delivered in Telegram',
+      output: 'Comprehensive reports delivered via Telegram',
       price: '$50'
     },
     {
       id: 2,
       name: 'Advanced Phishing Toolkit',
-      category: 'Dynamic Engine',
-      description: 'Automated phishing page builder with smart detection evasion and real-time alerts',
+      category: 'Cyber Simulation Engine',
+      description: 'Developed by a team of cybersecurity masters, this cutting-edge tool crafts dynamic phishing pages with smart evasion tactics and real-time alerts for ethical security testing.',
       features: [
         'Supports Facebook, Instagram, Gmail, Discord',
-        'Geolocation tracking and instant notifications',
+        'Geolocation tracking + instant alerts',
         'Bypasses basic email security',
         'Command: phish gmail'
       ],
@@ -35,9 +35,9 @@ const Tools: React.FC = () => {
     },
     {
       id: 3,
-      name: 'Malware Builder',
-      category: 'Stealth Payload Generator',
-      description: 'Creates undetectable executables with advanced obfuscation techniques',
+      name: 'Stealth Payload Builder',
+      category: 'Advanced Malware Framework',
+      description: 'Engineered by cybersecurity masters, this advanced tool creates undetectable executables using cutting-edge obfuscation techniques for security research.',
       features: [
         'Custom APK/EXE payloads',
         'Built-in AV evasion (PyArmor, UPX)',
@@ -49,9 +49,9 @@ const Tools: React.FC = () => {
     },
     {
       id: 4,
-      name: 'Bug Bounty Toolkit',
-      category: 'Full Stack Scanner',
-      description: 'Comprehensive vulnerability scanning with AI-assisted analysis',
+      name: 'Bug Bounty Professional Suite',
+      category: 'Full Stack Vulnerability Scanner',
+      description: 'Crafted by cybersecurity visionaries, this groundbreaking tool unveils a never-before-seen approach to vulnerability scanning with AI-assisted analysis.',
       features: [
         'Discovers subdomains, exposed APIs',
         'Generates exploit proof-of-concepts',
@@ -64,8 +64,8 @@ const Tools: React.FC = () => {
     {
       id: 5,
       name: 'AI Exploit Assistant',
-      category: 'Terminal Bot',
-      description: 'AI-powered security assistant for payload generation and analysis',
+      category: 'Terminal Intelligence Bot',
+      description: 'Crafted by cybersecurity visionaries, this groundbreaking AI-powered tool introduces a whole new level of security mastery with unique secret features.',
       features: [
         'Generates custom payloads and shells',
         'Explains attack methodologies',
@@ -77,9 +77,9 @@ const Tools: React.FC = () => {
     },
     {
       id: 6,
-      name: 'Anonymous Mode',
-      category: 'Privacy Package',
-      description: 'Multi-layered anonymity solution for secure operations',
+      name: 'Anonymous Operations Suite',
+      category: 'Privacy & Stealth Package',
+      description: 'Multi-layered anonymity solution for secure ethical operations with advanced privacy protection.',
       features: [
         'VPN chaining with Tor integration',
         'Dynamic proxy rotation',
@@ -114,15 +114,15 @@ const Tools: React.FC = () => {
           
           <h1 className="text-4xl font-bold text-white mb-4">
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 bg-clip-text text-transparent">
-              Advanced Security Terminal
+              Premier Ethical Security Suite
             </span>
           </h1>
           
           <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 mb-8">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div>
-                <h3 className="text-xl font-bold text-white mb-2">Full Terminal Access</h3>
-                <p className="text-gray-300">All tools for just <span className="text-green-400 font-bold">$50</span></p>
+                <h3 className="text-xl font-bold text-white mb-2">Complete Suite Access</h3>
+                <p className="text-gray-300">All professional tools for just <span className="text-green-400 font-bold">$50</span></p>
               </div>
               <button 
                 onClick={handleButtonClick}
@@ -202,21 +202,21 @@ const Tools: React.FC = () => {
         <div className="mt-16 text-center">
           <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border-2 border-gray-700">
             <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Get Started?
+              Your Key to Advanced Security Skills
             </h3>
             <p className="text-gray-300 mb-6 max-w-xl mx-auto">
-              Get full access to all BLACKGATE-X tools for just $50. 
-              Instant setup with 24/7 terminal access through Telegram.
+              Get complete access to the Premier Ethical Security Suite for just $50. 
+              Instant setup with 24/7 terminal access through Telegram. Crafted by cybersecurity masters.
             </p>
             <button 
               onClick={handleButtonClick}
               className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center mx-auto space-x-3"
             >
-              <span>Get Full Access for $50</span>
+              <span>Get Full Suite Access for $50</span>
             </button>
             <div className="mt-6 pt-6 border-t border-gray-700/50">
               <p className="text-gray-500 text-sm font-mono tracking-wider">
-                BLACKGATE-X Terminal | Telegram Access | Professional Security TOOLS
+                BLACKGATE-X Terminal | Professional Security Tools | Ethical Use Only
               </p>
             </div>
           </div>
